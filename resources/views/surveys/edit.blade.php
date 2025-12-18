@@ -46,7 +46,7 @@
             <label>{{ $field->questions }}</label>
             <input type="{{ $field->type }}" name="{{ $key }}" class="form-control" value="{{ $survey->$key }}">
         </div>
-        
+
         @elseif($field->type == 'textarea')
         {{-- Textarea --}}
         <div class="mb-3">
@@ -71,7 +71,7 @@
         <div class="mb-3">
             <label>{{ $field->questions }}</label><br>
             @foreach($field->options as $option_name => $option_value)
-            <input type="{{ $field->type }}" name="{{ $key }}" value="{{ $option_value }}" @if($option_value & $survey->$set_no) checked @endif> {{ $option_name }}
+            <input type="{{ $field->type }}" name="{{ $key }}" value="{{ $option_value }}" @if($option_value & $survey->$set_no) checked @endif> {{ $option_name }}&nbsp;&nbsp;
             @endforeach
         </div>
 
@@ -92,7 +92,7 @@
         <div class="mb-3">
             <label>{{ $field->questions }}</label><br>
             @foreach($field->options as $option_name => $option_value)
-            <input type="{{ $field->type }}" name="{{ $key }}[]" value="{{ $option_value }}" @if($option_value & $survey->$set_no) checked @endif> {{ $option_name }}
+            <input type="{{ $field->type }}" name="{{ $key }}[]" value="{{ $option_value }}" @if($option_value & $survey->$set_no) checked @endif> {{ $option_name }}&nbsp;&nbsp;
             @endforeach
         </div>
         @endif

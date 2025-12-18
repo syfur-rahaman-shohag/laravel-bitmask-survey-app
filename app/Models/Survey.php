@@ -11,10 +11,11 @@ class Survey extends Model
     use SoftDeletes, HasFactory;
 
     protected $table = 'app_survey';
-    
+
     protected $fillable = [
         'name',
         'description',
+        'age',
         'setA'
     ];
 }

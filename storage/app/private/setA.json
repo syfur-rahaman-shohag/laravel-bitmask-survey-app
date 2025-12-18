@@ -1,5 +1,5 @@
 {
-   "title": "Question heading/caption (Survey)",
+   "title": "Sample Survey Questionnaire:",
    "setA": {
       "name": {
          "questions": "What is your Name?",
@@ -8,7 +8,7 @@
       },
       "age": {
          "questions": "What is your age?",
-         "type": "text",
+         "type": "number",
          "options": {}
       },
 	  "description": {
@@ -52,21 +52,21 @@
          "type": "select",
          "options": {
             "Option A": 8192,
-            "Option B": 16284,
-            "Option C": 32568,
-            "Option D": 65136,
-            "Option E": 130272
+            "Option B": 16384,
+            "Option C": 32768,
+            "Option D": 65536,
+            "Option E": 131072
          }
       },
       "A5": {
          "questions": "Question 8?",
          "type": "checkbox",
          "options": {
-            "Option A": 260544,
-            "Option B": 521088,
-            "Option C": 1042176,
-            "Option D": 2084352,
-            "Option E": 4168704
+            "Option A": 262144,
+            "Option B": 524288,
+            "Option C": 1048576,
+            "Option D": 2097152,
+            "Option E": 4194304
          }
       }
    }

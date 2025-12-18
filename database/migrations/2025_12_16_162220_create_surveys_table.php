@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
 
             $table->string('name');
+            $table->tinyInteger('age')->nullable();
             $table->text('description')->nullable();
 
-            $table->bigInteger('setA');
+            $table->bigInteger('setA')->default(0);
 
             $table->timestamps();
             $table->softDeletes();
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('surveys');
+        Schema::dropIfExists('app_surveys');
     }
 };

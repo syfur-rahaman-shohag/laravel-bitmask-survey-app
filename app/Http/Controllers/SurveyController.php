@@ -13,8 +13,12 @@ class SurveyController extends Controller
      */
     public function index()
     {
+        $json_file_name = "setA.json";
+        $json_set = Storage::disk('local')->get($json_file_name);
+        $set = json_decode($json_set, false);
+
         $surveys = Survey::latest()->get();
-        return view('surveys.index', compact('surveys'));
+        return view('surveys.index', compact('surveys', 'set'));
     }
 
     /**
@@ -59,7 +63,7 @@ class SurveyController extends Controller
                 $data[$key] = $value;
             }
         }
-        
+
         $data['setA'] = $sum_of_set;
 
         Survey::create($data);
@@ -89,7 +93,7 @@ class SurveyController extends Controller
             'set' => $set,
             'survey' => $survey
         );
-        
+
         return view('surveys.edit', $data);
     }
 
@@ -119,7 +123,7 @@ class SurveyController extends Controller
                 $data[$key] = $value;
             }
         }
-        
+
         $data['setA'] = $sum_of_set;
 
         //print_r($data);
@@ -136,7 +140,7 @@ class SurveyController extends Controller
      */
     public function destroy(Survey $survey)
     {
-        $Survey->delete();
+        $survey->delete();
 
         return redirect()->route('surveys.index')
             ->with('success', 'Survey deleted successfully');
