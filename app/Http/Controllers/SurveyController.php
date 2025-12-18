@@ -13,9 +13,15 @@ class SurveyController extends Controller
      */
     public function index()
     {
-        $json_file_name = "setA.json";
+        $json_file_name = "survey_form.json";
         $json_set = Storage::disk('local')->get($json_file_name);
         $set = json_decode($json_set, false);
+
+        /* Get the survey data only for Male */
+        //$surveys = Survey::Male()->get();
+
+        /* Get the survey data only for Male */
+        //$surveys = Survey::Female()->get();
 
         $surveys = Survey::latest()->get();
         return view('surveys.index', compact('surveys', 'set'));
@@ -26,7 +32,7 @@ class SurveyController extends Controller
      */
     public function create()
     {
-        $json_file_name = "setA.json";
+        $json_file_name = "survey_form.json";
         $json_set = Storage::disk('local')->get($json_file_name);
         $set = json_decode($json_set, false);
 
@@ -85,7 +91,7 @@ class SurveyController extends Controller
      */
     public function edit(Survey $survey)
     {
-        $json_file_name = "setA.json";
+        $json_file_name = "survey_form.json";
         $json_set = Storage::disk('local')->get($json_file_name);
         $set = json_decode($json_set, false);
 

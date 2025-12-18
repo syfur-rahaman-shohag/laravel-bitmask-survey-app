@@ -18,4 +18,14 @@ class Survey extends Model
         'age',
         'setA'
     ];
+
+    public function scopeMale($query)
+    {
+        return $query->whereRaw('(setA & ?) > 0', [1]); // 1 is the bit value for male
+    }
+
+    public function scopeFemale($query)
+    {
+        return $query->whereRaw('(setA & ?) > 0', [2]); // 2 is the bit value for female
+    }
 }
