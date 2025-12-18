@@ -1,0 +1,73 @@
+{
+   "title": "Sample Survey Questionnaire:",
+   "setA": {
+      "name": {
+         "questions": "What is your Name?",
+         "type": "text",
+         "options": {}
+      },
+      "age": {
+         "questions": "What is your age?",
+         "type": "number",
+         "options": {}
+      },
+	  "description": {
+         "questions": "Tell me about yourself.",
+         "type": "textarea",
+         "options": {}
+      },
+      "A1": {
+         "questions": "What Gender?",
+         "type": "radio",
+         "options": {
+            "Male": 1,
+            "Female": 2,
+            "Other": 4
+         }
+      },
+      "A2": {
+         "questions": "Question 5?",
+         "type": "checkbox",
+         "options": {
+            "Option A": 8,
+            "Option B": 16,
+            "Option C": 32,
+            "Option D": 64,
+            "Option E": 128
+         }
+      },
+	  "A3": {
+         "questions": "Question 6?",
+         "type": "multiselect",
+         "options": {
+            "Option A": 256,
+            "Option B": 512,
+            "Option C": 1024,
+            "Option D": 2048,
+            "Option E": 4096
+         }
+      },
+	  "A4": {
+         "questions": "Question 7?",
+         "type": "select",
+         "options": {
+            "Option A": 8192,
+            "Option B": 16384,
+            "Option C": 32768,
+            "Option D": 65536,
+            "Option E": 131072
+         }
+      },
+      "A5": {
+         "questions": "Question 8?",
+         "type": "checkbox",
+         "options": {
+            "Option A": 262144,
+            "Option B": 524288,
+            "Option C": 1048576,
+            "Option D": 2097152,
+            "Option E": 4194304
+         }
+      }
+   }
+}
