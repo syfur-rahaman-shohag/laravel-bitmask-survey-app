@@ -3,7 +3,7 @@
 Laravel survey form generated based on bitmasking so that huge number of fields can be stored in database in an optimized way.
 Suppose, a survey form has 100 questions that belongs several dropdown or multiselect values for each questions. But we can't incorporate 100 fields in database or save multiselect/checkbox values in comma seperated. We've stored the data in one column in database using binary bit value (bitmask) for each option values.
 
-- **How Bitmask Works**:
+# How Bitmask Works
 For each option it uses 2^0 to 2^59 for each option fields like select or checkboxes. 
 Such as 
 Male, 2^0 = 1     (    1)
@@ -18,10 +18,10 @@ or binary OR operation = 1 | 1000 | 10000 = 11001, which is equivalent to Decima
 Now if we want to extract OptionB value that was checked earlier or nott, we will execute AND operation with its corresponding bit value with the bitmask.
 So, 16 & 25 -> 10000 & 11001 === 16, whereas, if you see the 1's bit in OptionB is presented in the same position (5th place) in bitmask that returns the true and same bit value after AND operation. 
 
-- **Technology Adopts**: 
+# Technology Adopts
 I saw this bitmasking used in vBulletin (OOP PHP) on 2019 which is a populer PHP framework for trading forums. All the admin panel settings and permission management used for all option values using bitmasking and xml configurations. Later on, I used this technology to solve a healthcare related survey problems came across me with 144 questions (maximum quetions belonged 5 options) for a single participant.
 
-- **Some Limitations**:
+# Some Limitations
 Though Laravel has no specific functionalities for bitmasking, we have implemented survey with Laravel 12.
 When you have more than 59 options and you checked all, it will overflow unsigned bigint in mysql and will return inappropriate values. In that case, you have to use Decimal with Scale 0. Previously, I have segregated 12 questions for each set which means setA contained 12 questions(5 options for each questions) and Other questions in setB,... and so on.
 But this approach is not ideal if option changes randomly while production is going on. 
@@ -50,8 +50,11 @@ But this approach is not ideal if option changes randomly while production is go
 ```bash
 git clone https://github.com/shohag-cse-knu/laravel-bitmask-survey-app.git
 ````
-### 2. Change the .env
-Modify Database name, db user and password.
+### 2. Copy .env.example to .env
+```bash
+cp .env.example .env
+````
+Modify Database name, DB user and password.
 
 ### 3. Composer Update
 ```bash
@@ -65,7 +68,7 @@ php artisan key:generate
 ```bash
 php artisan migrate
 ````
-### 5. Seeding
+### 5. Seed and observe already saved survey
 ```bash
 php artisan db:seed
 ````
