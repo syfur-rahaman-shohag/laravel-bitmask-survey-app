@@ -58,7 +58,7 @@
         {{-- Dropdown --}}
         <div class="mb-3">
             <label>{{ $field->questions }}</label>
-            <select name="{{ $key }}" class="form-control">
+            <select name="{{ $set_no }}[]" class="form-control">
                 <option value="">Select</option>
                 @foreach($field->options as $option_name => $option_value)
                 <option value="{{ $option_value }}">{{ $option_name }}</option>
@@ -71,7 +71,7 @@
         <div class="mb-3">
             <label>{{ $field->questions }}</label><br>
             @foreach($field->options as $option_name => $option_value)
-            <input type="{{ $field->type }}" name="{{ $key }}" value="{{ $option_value }}"> {{ $option_name }}&nbsp;&nbsp;
+            <input type="{{ $field->type }}" name="{{ $set_no }}[]" value="{{ $option_value }}"> {{ $option_name }}&nbsp;&nbsp;
             @endforeach
         </div>
 
@@ -79,7 +79,7 @@
         {{-- Multi Select --}}
         <div class="mb-3">
             <label>{{ $field->questions }}</label>
-            <select name="{{ $key }}[]" class="form-control" multiple>
+            <select name="{{ $set_no }}[]" class="form-control" multiple>
                 <option value="">Select</option>
                 @foreach($field->options as $option_name => $option_value)
                 <option value="{{ $option_value }}">{{ $option_name }}</option>
@@ -92,7 +92,7 @@
         <div class="mb-3">
             <label>{{ $field->questions }}</label><br>
             @foreach($field->options as $option_name => $option_value)
-            <input type="{{ $field->type }}" name="{{ $key }}[]" value="{{ $option_value }}"> {{ $option_name }}&nbsp;&nbsp;
+            <input type="{{ $field->type }}" name="{{ $set_no }}[]" value="{{ $option_value }}"> {{ $option_name }}&nbsp;&nbsp;
             @endforeach
         </div>
         @endif

@@ -11,7 +11,7 @@
          "type": "number",
          "options": {}
       },
-	  "description": {
+	   "description": {
          "questions": "Tell me about yourself.",
          "type": "textarea",
          "options": {}
@@ -36,7 +36,7 @@
             "Option E": 128
          }
       },
-	  "A3": {
+	   "A3": {
          "questions": "Question 6?",
          "type": "multiselect",
          "options": {
@@ -47,7 +47,7 @@
             "Option E": 4096
          }
       },
-	  "A4": {
+	   "A4": {
          "questions": "Question 7?",
          "type": "select",
          "options": {

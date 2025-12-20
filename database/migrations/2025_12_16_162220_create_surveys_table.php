@@ -18,7 +18,7 @@ return new class extends Migration
             $table->tinyInteger('age')->nullable();
             $table->text('description')->nullable();
 
-            $table->bigInteger('setA')->default(0);
+            $table->unsignedBigInteger('setA')->default(0);
 
             $table->timestamps();
             $table->softDeletes();

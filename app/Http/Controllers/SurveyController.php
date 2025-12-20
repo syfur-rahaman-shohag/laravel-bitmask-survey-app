@@ -54,23 +54,16 @@ class SurveyController extends Controller
         ]);
 
         $post_var = (object) $request->post();
-        $sum_of_set = 0;
-        $question_set = 'A';
+        $bitmask = 0;
         $data = array();
 
         foreach ($post_var as $key => $value) {
-            if (preg_match('/^'.$question_set.'\d+$/', $key)) {
-                if(is_array($value))
-                    $arr_sum = array_sum($value);
-                else
-                    $arr_sum = $value;
-                $sum_of_set += $arr_sum;
-            }else{
+            if(is_array($value))
+                $bitmask = array_sum($value);
+            else
                 $data[$key] = $value;
-            }
         }
-
-        $data['setA'] = $sum_of_set;
+        $data['setA'] = $bitmask;
 
         Survey::create($data);
 
@@ -114,26 +107,16 @@ class SurveyController extends Controller
         ]);
 
         $post_var = (object) $request->post();
-        $sum_of_set = 0;
-        $question_set = 'A';
         $data = array();
+        $bitmask = 0;
 
         foreach ($post_var as $key => $value) {
-            if (preg_match('/^'.$question_set.'\d+$/', $key)) {
-                if(is_array($value))
-                    $arr_sum = array_sum($value);
-                else
-                    $arr_sum = $value;
-                $sum_of_set += $arr_sum;
-            }else{
+            if(is_array($value))
+                $bitmask = array_sum($value);
+            else
                 $data[$key] = $value;
-            }
         }
-
-        $data['setA'] = $sum_of_set;
-
-        //print_r($data);
-        //die();
+        $data['setA'] = $bitmask;
 
         $survey->update($data);
 
