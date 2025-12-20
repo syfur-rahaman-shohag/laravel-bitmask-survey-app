@@ -19,7 +19,7 @@ Now if we want to extract OptionB value that was checked earlier or nott, we wil
 So, 16 & 25 -> 10000 & 11001 === 16, whereas, if you see the 1's bit in OptionB is presented in the same position (5th place) in bitmask that returns the true and same bit value after AND operation. 
 
 # Technology Adopts
-I saw this bitmasking used in vBulletin (OOP PHP) on 2019 which is a populer PHP framework for trading forums. All the admin panel settings and permission management used for all option values using bitmasking and xml configurations. Later on, I used this technology to solve a healthcare related survey problems came across me with 144 questions (maximum quetions belonged 5 options) for a single participant.
+I had been working with this bitmasking which was used in a reknowned OOP PHP framework called vBulletin (OOP PHP) since 2019. All the admin panel settings and permission management used for all option values using bitmasking and xml configurations. Later on, I used this technology to solve a healthcare related survey problems came across me with 144 questions (maximum quetions belonged 5 options) for a single participant.
 
 # Some Limitations
 Though Laravel has no specific functionalities for bitmasking, we have implemented survey with Laravel 12.
