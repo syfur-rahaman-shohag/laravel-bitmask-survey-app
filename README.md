@@ -4,8 +4,8 @@ Laravel survey form generated based on bitmasking so that huge number of fields 
 Suppose, a survey form has 100 questions that belongs several dropdown or multiselect values for each questions. But we can't incorporate 100 fields in database or save multiselect/checkbox values in comma seperated. We've stored the data in one column in database using binary bit value (bitmask) for each option values.
 
 # How Bitmask Works
-For each option it uses 2^0 to 2^59 for each option fields like select or checkboxes. 
-Such as 
+For each option it uses 2^0 to 2^59 for each option fields like select or checkboxes. I have configured questions in storage/app/private/survey_form.json 
+Such as, 
 Male, 2^0 = 1     (    1)
 Female, 2^1 = 2   (   10)
 Other, 2^2 = 4    (  100)
@@ -17,6 +17,23 @@ bitmask = 1 + 8 + 16 = 25
 or binary OR operation = 1 | 1000 | 10000 = 11001, which is equivalent to Decimal 25.
 Now if we want to extract OptionB value that was checked earlier or nott, we will execute AND operation with its corresponding bit value with the bitmask.
 So, 16 & 25 -> 10000 & 11001 === 16, whereas, if you see the 1's bit in OptionB is presented in the same position (5th place) in bitmask that returns the true and same bit value after AND operation. 
+
+# Laravel and Bitmasking
+I have created Male and Female scope in Survey Model. You can filter only Male survey participants calling this scope. 
+In Model,
+public function scopeMale($query)
+{
+    return $query->whereRaw('(setA & ?) > 0', [1]); // 1 is the bit value for male
+}
+
+public function scopeFemale($query)
+{
+    return $query->whereRaw('(setA & ?) > 0', [2]); // 2 is the bit value for female
+}
+
+In controller,
+/* Get the survey data only for Male */
+$surveys = Survey::Male()->get();
 
 # Technology Adopts
 I had been working with this bitmasking which was used in a reknowned OOP PHP framework called vBulletin (OOP PHP) since 2019. All the admin panel settings and permission management used for all option values using bitmasking and xml configurations. Later on, I used this technology to solve a healthcare related survey problems came across me with 144 questions (maximum quetions belonged 5 options) for a single participant.
