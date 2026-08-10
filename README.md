@@ -115,4 +115,4 @@ For questions or suggestions, please contact:
 
 - **Name**: Syfur Rahaman Shohag
 - **Email**: [syfur.srs@gmail.com](mailto:syfur.srs@gmail.com)
-- **GitHub**: [https://github.com/shohag-cse-knu](https://github.com/shohag-cse-knu)
+- **GitHub**: [https://github.com/syfur-rahaman-shohag](https://github.com/syfur-rahaman-shohag)
